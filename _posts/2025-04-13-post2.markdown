@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Discrimination matters"
-date:   2025-04-04 
+date:   2025-04-13 
 categories: tok
 ---
 
