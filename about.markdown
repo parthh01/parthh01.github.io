@@ -10,13 +10,6 @@ permalink: /about/
 
 decent at gradient descent. 
 
-**things** I like  
-flying  
-jiu jitsu  
-hardware  
-software  
-chess  
-musing  
 
-1 in every 13 repos gets made public: [github](https://github.com/parthh01)
+Occasionally muse in code too on [github](https://github.com/parthh01)
 
