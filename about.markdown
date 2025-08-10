@@ -13,4 +13,4 @@ decent at gradient descent.
 
 Occasionally muse in code too on [github](https://github.com/parthh01)
 
-my current vehicle for exploration: https://critique-labs.ai
+current vehicle for exploration: https://critique-labs.ai
