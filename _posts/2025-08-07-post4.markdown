@@ -6,7 +6,7 @@ categories: RL,life
 
 ---
 
-if you just want to browse the results for yourself: https://dilemma.critique-labs.ai
+if you just want to browse the results for yourself [here](https://dilemma.critique-labs.ai)
 
 My high school economics teacher introduced us to game theory using ["Split or Steal"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?). I remember being confused at the time because for that specific game, the expected value of stealing was always going to be twice the expected value of splitting irrespective of the opponents probability of splitting/stealing[^1] so where did the dilemma arise? Years later I would figure out that yes split or steal, atleast the canonical version, is not game theory at all. Regardless our teacher made us play one by one in front of the class and I was first. 
 
@@ -26,5 +26,5 @@ This is still a WIP, there's few more interesting data points I've elicited from
 
 questions, comments, concerns to parth@critique-labs.ai please, thank you. 
 
-[^1]: left as an exercise to the reader lol.["Game Rules"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?) 
+[^1]: left as an exercise to the reader lol. ["Game Rules"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?) 
 
