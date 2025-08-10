@@ -1,0 +1,30 @@
+---
+layout: post
+title:  "The dilemma's prisoner"
+date: 2025-08-07
+categories: RL,life
+
+---
+
+if you just want to browse the results for yourself: https://dilemma.critique-labs.ai
+
+My high school economics teacher introduced us to game theory using ["Split or Steal"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?). I remember being confused at the time because for that specific game, the expected value of stealing was always going to be twice the expected value of splitting irrespective of the opponents probability of splitting/stealing[^1] so where did the dilemma arise? Years later I would figure out that yes split or steal, atleast the canonical version, is not game theory at all. Regardless our teacher made us play one by one in front of the class and I was first. 
+
+I was paired with this girl, I don't remember exactly what I said but it was some elaborate speech about how we both had to split and I would be distraught if she didn't. She splits and I steal. Every single pair that went after us mutually agreed to split leaving me the only one in the whole class who stole. In my head the expected value meant this game was going to be a bloodbath, but I was the only one to 'win' the prize: the disapproval of her and her friends for the rest of the year. Turns out there was a dilemma, just not the one I was expecting. 
+
+Feels like people have a [mostly unflattering](https://news.ycombinator.com/item?id=43603453) view on evals and benchmark maxxing these days. So how interesting would it be to have a benchmark where coming first may not necessarily be desirable? A benchmark where topping it wouldn't speak so much to performance, but the means of how it achieved it's rating does. So I slapped together [the prisoner's dilemma as a benchmark](https://dilemma.critique-labs.ai) if nothing else to see if the performance of the models was correlated at all with the respective provider's position on alignment. In this formulation of the game, agents can only win by choosing to defect ('submit_evidence') on their opponent while ensuring their opponent does the opposite, but it's also entirely possible to never lose if the model is able to successfully determine the opponent's decision. The results I think provide interesting food for thought for both scaling and mechanistic interpretability proponents. 
+
+![elo vs params](imgs/model_series_elo_and_actions.png "green is % of the time they defected, yes confidence intervals are missing")
+![elo vs defect rate](imgs/agents_correlation_elo_vs_submit.png "elo rating is weakly correlated with tendency to submit")
+
+
+The full system prompt and details are available on the site up top, but the gist is you can either snitch on your counterpart and go free, or withhold and both of you face a minimal prison sentence, unless you both snitch in which case you you both get the largest possible prison sentence. It turns out llama-3.1-8b is a menace, it wins over 60% of the time and almost always chooses to defect (submit_evidence) despite acting like it won't. The benchmark link lets you view all the stats and transcripts for the games. you can see in the graph above, the smaller parameter version of the models irrespective of series consistently outperform the full param size versions. Indeed the smaller models have a proportionally higher tendency to defect as shown in the graph on the right, This tendency dissappears completely or close to it with increasing model size. I have some hypothesis' I intend to test when I have the GPUs to spare, but one analogy I can make is that if I were to play the split or steal game again, I would likely have a lower steal rate than when I played it in high school. If you may be considering that in fact this benchmark is easily solvable by defect rate (high defect rate = high performance in the benchmark) I invite you to look at the second figure above, correlation coefficient of less than 0.5 shows there may be confounding variables. 
+
+One interesting exception is GLM-4.5 by z.ai. It's in the top 15 while maintaining a remarkably low defect rate. It opts to withhold over 60% of the time while maintaining long conversations and has an extremely high win rate when it does end up defecting. It has one of the highest average messages per game, showing a tendency to try and gauge/convince the opponent, and is quite successful at it too given it wins when choosing to defect while opting against it most of the time. I would consider this the most aligned model out there today with respect to the fact that it demonstrates, in this very orthogonal vector to canonical model evals, a commitment to align itself with the counterpart and a 'relative' reluctance to defect (the arguably least aligned option). 
+
+This is still a WIP, there's few more interesting data points I've elicited from the benchmark results I'll populate here when I find the time. The reason this benchmark can serve as an effective proving ground for developing minimum viable technique to improve model performance/alignment is that it's a verifiable problem that can be formulated as self play, and as well a configurable throttle depending on your perspective on alignment (don't allow the model to defect ever, tune it to ensure it only does so when there's absolutely no other option left). 
+
+questions, comments, concerns to parth@critique-labs.ai please, thank you. 
+
+[^1]: left as an exercise to the reader lol.["Game Rules"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?) 
+
