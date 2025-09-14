@@ -24,7 +24,6 @@ One interesting exception is GLM-4.5 by z.ai. It's in the top 15 while maintaini
 
 This is still a WIP, there's few more interesting data points I've elicited from the benchmark results I'll populate here when I find the time. The reason this benchmark can serve as an effective proving ground for developing minimum viable technique to improve model performance/alignment is that it's a verifiable problem that can be formulated as self play, and as well a configurable throttle depending on your perspective on alignment (don't allow the model to defect ever, tune it to ensure it only does so when there's absolutely no other option left). 
 
-questions, comments, concerns to parth@critique-labs.ai. 
 
 [^1]: left as an exercise to the reader lol. ["Game Rules"](https://en.wikipedia.org/wiki/Golden_Balls#Split_or_Steal?) 
 
